@@ -14,7 +14,7 @@ public class PartsInventoryModel {
 	
 	public void addPart(Part p) throws Exception {
 		try {
-			addPart(p.getID(), p.getQuantity(), p.getQuantityUnitType(), p.getPartName(), p.getPartNumber(), p.getVendor());
+			addPart(p.getID(), p.getQuantity(), p.getQuantityUnitType(), p.getPartName(), p.getPartNumber(), p.getVendor(), p.getLocation());
 		}
 		catch (IOException e) {
 			throw new IOException(e.getMessage());
@@ -24,10 +24,14 @@ public class PartsInventoryModel {
 		}
 	}
 	
-	public void addPart(Integer id, Integer quantity, String unitOfQuantity, String partName, String partNumber) throws Exception {
+	public void addPart(Integer id, Integer quantity, String unitOfQuantity, String partName, String partNumber, String location) throws Exception {
 		try {
+<<<<<<< HEAD
 			addPart(id, quantity, unitOfQuantity, partName, partNumber, "");
 
+=======
+			addPart(id, quantity, unitOfQuantity, partName, partNumber, location);
+>>>>>>> Updated the Part class to include a set of locations (String[]) and a variable for the part's location. Also included getter and setter, with appropriate exceptions thrown for unknown/unrecognized locations (meets the 'required' criteria). Finally, updated JUnit tests to reflect new constructors for the Part, and created new JUnit tests for the location requirements. Also had to update the PartsInventoryModel to reflect the new Part constructors.
 		}
 		catch (IOException e) {
 			throw new IOException(e.getMessage());
@@ -37,14 +41,22 @@ public class PartsInventoryModel {
 		}
 	}
 	
+<<<<<<< HEAD
 
 	public void addPart(Integer id, Integer quantity, String unitOfQuantity, String partName, String partNumber, String vendor) throws Exception, IOException {
+=======
+	public void addPart(Integer id, Integer quantity, String unitOfQuantity, String partName, String partNumber, String vendor, String location) throws Exception, IOException {
+>>>>>>> Updated the Part class to include a set of locations (String[]) and a variable for the part's location. Also included getter and setter, with appropriate exceptions thrown for unknown/unrecognized locations (meets the 'required' criteria). Finally, updated JUnit tests to reflect new constructors for the Part, and created new JUnit tests for the location requirements. Also had to update the PartsInventoryModel to reflect the new Part constructors.
 		if (quantity <= 0) {
 			throw new IOException("A new item requires quantity greater than zero.");
 		}
 		try {
+<<<<<<< HEAD
 			Part p = new Part(id, quantity, unitOfQuantity, partName, partNumber, vendor);
 
+=======
+			Part p = new Part(id, quantity, unitOfQuantity, partName, partNumber, vendor, location);
+>>>>>>> Updated the Part class to include a set of locations (String[]) and a variable for the part's location. Also included getter and setter, with appropriate exceptions thrown for unknown/unrecognized locations (meets the 'required' criteria). Finally, updated JUnit tests to reflect new constructors for the Part, and created new JUnit tests for the location requirements. Also had to update the PartsInventoryModel to reflect the new Part constructors.
 			if (findPartName(p.getPartName()) != null) {
 				throw new Exception("Part name \"" + p.getPartName() + "\" is already listed in inventory.");
 			}
