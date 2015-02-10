@@ -18,10 +18,15 @@ public class PartsInventoryView extends JFrame  {
 	private int GUIWidth;
 	private int GUIHeight;
 <<<<<<< HEAD
+<<<<<<< HEAD
 	private String[] columnNames = {"ID", "Part Name", "Part Number", "Vendor", "Quantity", "Quantity Unit Type"};
 =======
 
 	private String[] columnNames = {"ID", "Part Name", "Part Number", "Vendor", "Quantity", "Quantity Unit Type", "Location"};
+=======
+
+	private String[] columnNames = {"ID", "Part Name", "Part Number", "External Part Number", "Vendor", "Quantity", "Quantity Unit Type"};
+>>>>>>> Change request 3 complete
 
 >>>>>>> Updated PartsInventoryView, PartView, PartController, and the JUnit test for the PartsInventoryView. Specifically, added MVC functionality for the part location data, including column header sorting, editability in the PartView, modifying the PartView to show location, and including the location information in the controller.
 	private JTable table;
@@ -64,7 +69,11 @@ public class PartsInventoryView extends JFrame  {
 		table.setPreferredScrollableViewportSize(new Dimension(GUIWidth, GUIHeight));
 		
 		for (Part p: model.getInventory()) {
+<<<<<<< HEAD
 			rowData = new Object[] {p.getID(), p.getPartName(), p.getPartNumber(), p.getVendor(), p.getQuantity(), p.getQuantityUnitType(), p.getLocation()};
+=======
+			rowData = new Object[] {p.getID(), p.getPartName(), p.getPartNumber(), p.getExternalNumber(), p.getVendor(), p.getQuantity(), p.getQuantityUnitType()};
+>>>>>>> Change request 3 complete
 			tableModel.addRow(rowData);
 		}
 	
@@ -109,7 +118,11 @@ public class PartsInventoryView extends JFrame  {
 	public void updatePanel() { // tears down the entire table and re-populates it
 		tableModel.setRowCount(0);
 		for (Part p: model.getInventory()) {
+<<<<<<< HEAD
 			rowData = new Object[] {p.getID(), p.getPartName(), p.getPartNumber(), p.getVendor(), p.getQuantity(), p.getQuantityUnitType(), p.getLocation()};
+=======
+			rowData = new Object[] {p.getID(), p.getPartName(), p.getPartNumber(), p.getExternalNumber(), p.getVendor(), p.getQuantity(), p.getQuantityUnitType()};
+>>>>>>> Change request 3 complete
 			tableModel.addRow(rowData);
 		}
 		table.setModel(tableModel);
