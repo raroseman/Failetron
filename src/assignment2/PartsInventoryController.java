@@ -77,6 +77,7 @@ public class PartsInventoryController implements ActionListener, ListSelectionLi
 					partView.setVendor(selectedPart.getVendor());
 					partView.setQuantity(selectedPart.getQuantity());
 					partView.setQuantityUnitType(selectedPart.getQuantityUnitType());
+					partView.setLocation(selectedPart.getLocation());
 					inventoryView.updatePanel();
 					inventoryView.repaint();
 					hasPartViewOpen = true;
