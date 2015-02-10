@@ -66,7 +66,11 @@ public class Test_InventoryModel {
 	@Test
 	public void testInventoryModel_AddPart() {
 		try {
+<<<<<<< HEAD
 			pim.addPart(id, quantity, quantityUnitType, partName, partNumber, vendor);
+=======
+			pim.addPart(id ,quantity, quantityUnitType, partName, partNumber, vendor, location);
+>>>>>>> Updated PartsInventoryView, PartView, PartController, and the JUnit test for the PartsInventoryView. Specifically, added MVC functionality for the part location data, including column header sorting, editability in the PartView, modifying the PartView to show location, and including the location information in the controller.
 			assertTrue(pim.getSize() == 1);
 		}
 		catch (IOException e) {
@@ -80,7 +84,7 @@ public class Test_InventoryModel {
 	@Test (expected = IOException.class)
 	public void testInventoryModel_AddPartWithNegativeQuantity() throws IOException {
 		try {
-			pim.addPart(1, -1, quantityUnitType, partName, partNumber, vendor);
+			pim.addPart(1, -1, quantityUnitType, partName, partNumber, vendor, location);
 			fail("Should have thrown an exception: Part with negative quantity was added.");
 		}
 		catch (IOException e) {
@@ -94,7 +98,7 @@ public class Test_InventoryModel {
 	@Test (expected = IOException.class)
 	public void testInventoryModel_AddPartWithZeroQuantity() throws IOException {
 		try {
-			pim.addPart(1, -1, quantityUnitType, partName, partNumber, vendor);
+			pim.addPart(1, -1, quantityUnitType, partName, partNumber, vendor, location);
 			fail("Should have thrown an IOException: Part with zero quantity was added.");
 		}
 		catch (IOException e) {
@@ -113,7 +117,7 @@ public class Test_InventoryModel {
 			longPartNumber = longPartNumber + "A"; // add one letter to the string
 		}
 		try {
-			pim.addPart(1, -1, quantityUnitType, partName, longPartNumber, vendor);
+			pim.addPart(1, -1, quantityUnitType, partName, longPartNumber, vendor, location);
 			fail("Should have thrown an IOException: Part with partNumber exceeding max length was added.");
 		}
 		catch (IOException e) {
@@ -219,7 +223,7 @@ public class Test_InventoryModel {
 			pim.addPart(id, quantity, quantityUnitType, partName, partNumber, vendor, location);
 			assertTrue(pim.getSize() == 1);
 			assertTrue((partOriginal = pim.findPartName(partName)) != null); // should find a valid Part object
-			Part partReplace = new Part(1, 42, "Linear Feet", "ThisNewPartName", partNumber, "DifferentVendor");
+			Part partReplace = new Part(1, 42, "Linear Feet", "ThisNewPartName", partNumber, "DifferentVendor", location);
 			pim.editPart(partOriginal, partReplace);
 			assertTrue(pim.findPartName(partName) == null); // should not find the old Part name
 			assertTrue(pim.findPartName("ThisNewPartName") != null); // should find the new Part name
@@ -240,7 +244,7 @@ public class Test_InventoryModel {
 			pim.addPart(id, quantity, quantityUnitType, partName, partNumber, vendor, location);
 			assertTrue(pim.getSize() == 1);
 			assertTrue((partOriginal = pim.findPartName(partName)) != null); // should find a valid Part object
-			pim.editPart(partOriginal, 1, 42, "Linear Feet", "ThisNewPartName", partNumber, "DifferentVendor");
+			pim.editPart(partOriginal, 1, 42, "Linear Feet", "ThisNewPartName", partNumber, "DifferentVendor", location);
 			assertTrue(pim.findPartName(partName) == null); // should not find the old Part name
 			assertTrue(pim.findPartName("ThisNewPartName") != null); // should find the new Part name
 			assertTrue(pim.getSize() == 1);

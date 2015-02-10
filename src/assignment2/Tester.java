@@ -19,8 +19,12 @@ public class Tester {
 	
 		for (int i = 1; i < 58; i++) {
 			try {
+<<<<<<< HEAD
 				Part p = new Part(i, i, "Pieces", "MyPartName" + i, "MyPartNumber" + i, "Vendor" + i);
 
+=======
+				Part p = new Part(i, i, "Pieces", "MyPartName" + i, "MyPartNumber" + i, "Vendor" + i, "Facility 2");
+>>>>>>> Updated PartsInventoryView, PartView, PartController, and the JUnit test for the PartsInventoryView. Specifically, added MVC functionality for the part location data, including column header sorting, editability in the PartView, modifying the PartView to show location, and including the location information in the controller.
 				partsInventoryModel.addPart(p);
 			}
 			catch (IOException e) {

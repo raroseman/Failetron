@@ -15,9 +15,17 @@ import javax.swing.border.EmptyBorder;
 public class PartView extends JFrame {
 	private JPanel partFrame;
 	private JButton cancel, ok, edit, save;
+<<<<<<< HEAD
 	private JLabel partName, partNumber, partVendor, partQuantity, partID, partQuantityUnitType, errorMessage;
 	private JTextField nameField, numberField, vendorField, quantityField, idField;
 	private JComboBox<String> quantityUnitTypeField;
+=======
+
+	private JLabel partName, partNumber, partVendor, partQuantity, partQuantityUnitType, partID, partLocation, errorMessage;
+	private JTextField nameField, numberField, vendorField, quantityField, idField;
+	private JComboBox<String> quantityUnitTypeField, locationField;
+	
+>>>>>>> Updated PartsInventoryView, PartView, PartController, and the JUnit test for the PartsInventoryView. Specifically, added MVC functionality for the part location data, including column header sorting, editability in the PartView, modifying the PartView to show location, and including the location information in the controller.
 	private int viewWidth, viewHeight;
 	
 	public PartView(PartsInventoryModel model, String title) {
@@ -62,8 +70,13 @@ public class PartView extends JFrame {
 			partQuantityUnitType.setBounds(15, 135, 90, 30);
 			partFrame.add(partQuantityUnitType);
 			
+			partLocation = new JLabel("Location");
+			partLocation.setBounds(15, 195, 90, 30);
+			partFrame.add(partLocation);
+			
 			errorMessage = new JLabel("");
 			errorMessage.setForeground(Color.red);
+<<<<<<< HEAD
 			errorMessage.setBounds(15, 200, 360, 30);
 			partFrame.add(errorMessage);
 			
@@ -81,6 +94,26 @@ public class PartView extends JFrame {
 			
 			save = new JButton("Save");
 			save.setBounds(155, 180, 70, 25);
+=======
+			errorMessage.setBounds(15, 235, 360, 30);
+			partFrame.add(errorMessage);
+			
+			cancel = new JButton("Cancel");
+			cancel.setBounds(225, 270, 75, 25);
+			partFrame.add(cancel);
+			
+			ok = new JButton("OK");
+			ok.setBounds(155, 270, 70, 25);
+			partFrame.add(ok);
+			
+			edit = new JButton("Edit");
+			edit.setBounds(155, 270, 70, 25);
+			partFrame.add(edit);
+			
+			save = new JButton("Save");
+			save.setBounds(155, 270, 70, 25);
+
+>>>>>>> Updated PartsInventoryView, PartView, PartController, and the JUnit test for the PartsInventoryView. Specifically, added MVC functionality for the part location data, including column header sorting, editability in the PartView, modifying the PartView to show location, and including the location information in the controller.
 			partFrame.add(save);
 			
 			nameField = new JTextField();
@@ -109,6 +142,13 @@ public class PartView extends JFrame {
 			}
 			quantityUnitTypeField.setBounds(120, 140, 200, 20);
 			partFrame.add(quantityUnitTypeField);
+			
+			locationField = new JComboBox<String>();
+			for (String location : model.getValidLocationTypes()) {
+				locationField.addItem(location);
+			}
+			locationField.setBounds(120, 200, 200, 20);
+			partFrame.add(locationField);
 	}
 	
 	public void register(PartsInventoryController controller) {
@@ -156,6 +196,11 @@ public class PartView extends JFrame {
 		return quantityUnitTypeField.getItemAt(index);
 	}
 	
+	public String getPartLocation() {
+		int index = locationField.getSelectedIndex();
+		return locationField.getItemAt(index);
+	}
+	
 	public void setErrorMessage(String error) {
 		errorMessage.setText(error);
 	}
@@ -184,6 +229,10 @@ public class PartView extends JFrame {
 		quantityUnitTypeField.setSelectedItem(quantityUnitType);
 	}
 	
+	public void setLocation(String location) {
+		locationField.setSelectedItem(location);
+	}
+	
 	public void hideEditButton() {
 		edit.setVisible(false);
 	}
@@ -205,6 +254,7 @@ public class PartView extends JFrame {
 		vendorField.setEnabled(false);
 		quantityField.setEnabled(false);
 		quantityUnitTypeField.setEnabled(false);
+		locationField.setEnabled(false);
 	}
 	
 	public void enableEditable() {
@@ -214,5 +264,6 @@ public class PartView extends JFrame {
 		vendorField.setEnabled(true);
 		quantityField.setEnabled(true);
 		quantityUnitTypeField.setEnabled(true);
+		locationField.setEnabled(true);
 	}
 }
