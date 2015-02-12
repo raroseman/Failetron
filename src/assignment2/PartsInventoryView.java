@@ -195,4 +195,5 @@ public class PartsInventoryView extends JFrame  {
 		}
 		return null;
 	}
+>>>>>>> 39d74658b7a82f24c0099aa2ffeca62dcfc2fa4a
 }
