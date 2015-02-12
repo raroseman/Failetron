@@ -37,11 +37,7 @@ public class Test_InventoryModel {
 	@Test
 	public void testInventoryModel_AddPartAsObject() {
 		try {
-<<<<<<< HEAD
-			p = new Part(id, quantity, quantityUnitType, partName, partNumber, location);
-=======
-			p = new Part(id, quantity, quantityUnitType, partName, partNumber, externalPartNumber);
->>>>>>> Change request 3 complete
+			p = new Part(id, quantity, quantityUnitType, partName, partNumber, externalPartNumber, location);
 			pim.addPart(p);
 			assertTrue(pim.getSize() == 1);
 			assertTrue(pim.findPartName(partName).getPartName().equals(partName)); // If found, a Part is returned - validate partName match
@@ -72,11 +68,7 @@ public class Test_InventoryModel {
 	@Test
 	public void testInventoryModel_AddPart() {
 		try {
-<<<<<<< HEAD
-			pim.addPart(id, quantity, quantityUnitType, partName, partNumber, vendor);
-=======
 			pim.addPart(id ,quantity, quantityUnitType, partName, partNumber, vendor, location);
->>>>>>> Updated PartsInventoryView, PartView, PartController, and the JUnit test for the PartsInventoryView. Specifically, added MVC functionality for the part location data, including column header sorting, editability in the PartView, modifying the PartView to show location, and including the location information in the controller.
 			assertTrue(pim.getSize() == 1);
 		}
 		catch (IOException e) {
@@ -250,11 +242,7 @@ public class Test_InventoryModel {
 			pim.addPart(id, quantity, quantityUnitType, partName, partNumber, vendor, location);
 			assertTrue(pim.getSize() == 1);
 			assertTrue((partOriginal = pim.findPartName(partName)) != null); // should find a valid Part object
-<<<<<<< HEAD
-			pim.editPart(partOriginal, 1, 42, "Linear Feet", "ThisNewPartName", partNumber, "DifferentVendor", location);
-=======
-			pim.editPart(partOriginal, 1, 42, "Linear Feet", "ThisNewPartName", partNumber, externalPartNumber, "DifferentVendor");
->>>>>>> Change request 3 complete
+			pim.editPart(partOriginal, 1, 42, "Linear Feet", "ThisNewPartName", partNumber, externalPartNumber, location, "DifferentVendor");
 			assertTrue(pim.findPartName(partName) == null); // should not find the old Part name
 			assertTrue(pim.findPartName("ThisNewPartName") != null); // should find the new Part name
 			assertTrue(pim.getSize() == 1);

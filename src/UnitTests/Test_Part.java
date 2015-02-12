@@ -21,7 +21,7 @@ public class Test_Part {
 	Part p;
 	
 	@Before 
-	public void setUp() {
+	public void setUp() {	
 		id = 1;
 		quantity = 2;
 		unitOfQuantity = "Pieces";
@@ -35,11 +35,7 @@ public class Test_Part {
 	@Test
 	public void testPartCreation_NoVendor() {
 		try {
-<<<<<<< HEAD
-			p = new Part(id, quantity, unitOfQuantity, partName, partNumber, location);
-=======
-			p = new Part(id, quantity, unitOfQuantity, partName, partNumber, externalPartNumber);
->>>>>>> Change request 3 complete
+			p = new Part(id, quantity, unitOfQuantity, partName, partNumber, externalPartNumber, location);
 			assertTrue(p.getQuantity() == quantity);
 			assertTrue(p.getQuantityUnitType().equals(unitOfQuantity));
 			assertTrue(p.getPartName().equals(partName));
@@ -72,11 +68,7 @@ public class Test_Part {
 	public void testPartCreation_QuantityError() throws IOException {
 		Integer badQuantity = -1;
 		try {
-<<<<<<< HEAD
-			p = new Part(id, badQuantity, unitOfQuantity, partName, partNumber, location);
-=======
-			p = new Part(id, badQuantity, unitOfQuantity, partName, partNumber, externalPartNumber);
->>>>>>> Change request 3 complete
+			p = new Part(id, badQuantity, unitOfQuantity, partName, partNumber, externalPartNumber, location);
 			fail("Should have thrown an exception: quantity is: " + 
 					badQuantity + "and was set as " + p.getQuantity());
 		}
@@ -89,11 +81,7 @@ public class Test_Part {
 	public void testPartCreation_UnitOfQuantityError_Unrecognized() throws IOException {
 		String badUnit = "Feet";
 		try {
-<<<<<<< HEAD
-			p = new Part(id, quantity, badUnit, partName, partNumber, location);
-=======
-			p = new Part(id, quantity, badUnit, partName, partNumber, externalPartNumber);
->>>>>>> Change request 3 complete
+			p = new Part(id, quantity, badUnit, partName, partNumber, externalPartNumber, location);
 			fail("Should have thrown an exception: unit type of quantity is: " + 
 					badUnit + "and was set as " + p.getQuantityUnitType());
 		}
@@ -106,11 +94,7 @@ public class Test_Part {
 	public void testPartCreation_UnitOfQuantityError_Unknown() throws IOException {
 		String badUnit = "Unknown";
 		try {
-<<<<<<< HEAD
-			p = new Part(id, quantity, badUnit, partName, partNumber, location);
-=======
-			p = new Part(id, quantity, badUnit, partName, partNumber, externalPartNumber);
->>>>>>> Change request 3 complete
+			p = new Part(id, quantity, badUnit, partName, partNumber, externalPartNumber, location);
 			fail("Should have thrown an exception: unit type of quantity is: " + 
 					badUnit + "and was set as " + p.getQuantityUnitType());
 		}
@@ -123,11 +107,7 @@ public class Test_Part {
 	public void testPartCreation_UnitOfQuantityError_Empty() throws IOException {
 		String badUnit = "";
 		try {
-<<<<<<< HEAD
-			p = new Part(id, quantity, badUnit, partName, partNumber, location);
-=======
-			p = new Part(id, quantity, badUnit, partName, partNumber, externalPartNumber);
->>>>>>> Change request 3 complete
+			p = new Part(id, quantity, badUnit, partName, partNumber, externalPartNumber, location);
 			fail("Should have thrown an exception: unit type of quantity is: " + 
 					badUnit + "and was set as " + p.getQuantityUnitType());
 		}
@@ -143,11 +123,7 @@ public class Test_Part {
 			longPartName = longPartName + "A"; // add one letter to the string
 		}
 		try {
-<<<<<<< HEAD
-			p = new Part(id, quantity, unitOfQuantity, longPartName, partNumber, location);
-=======
-			p = new Part(id, quantity, unitOfQuantity, longPartName, partNumber, externalPartNumber);
->>>>>>> Change request 3 complete
+			p = new Part(id, quantity, unitOfQuantity, longPartName, partNumber, externalPartNumber, location);
 		}
 		catch (IOException e) {
 			fail("Exception thrown during unexceptional part creation: partName length is: " + 
@@ -162,11 +138,7 @@ public class Test_Part {
 			longPartName = longPartName + "A"; // add one letter to the string
 		}
 		try {
-<<<<<<< HEAD
-			p = new Part(id, quantity, unitOfQuantity, longPartName, partNumber, location);
-=======
-			p = new Part(id, quantity, unitOfQuantity, longPartName, partNumber, externalPartNumber);
->>>>>>> Change request 3 complete
+			p = new Part(id, quantity, unitOfQuantity, longPartName, partNumber, externalPartNumber, location);
 			fail("Should have thrown an exception: partName length is: " + 
 					p.getPartName().length() + " and limit is: " + Part.getMaxPartNameLength());
 		}
@@ -182,11 +154,7 @@ public class Test_Part {
 			longPartNumber = longPartNumber + "A"; // add one letter to the string
 		}
 		try {
-<<<<<<< HEAD
-			p = new Part(id, quantity, unitOfQuantity, partName, longPartNumber, location);
-=======
-			p = new Part(id, quantity, unitOfQuantity, partName, longPartNumber, externalPartNumber);
->>>>>>> Change request 3 complete
+			p = new Part(id, quantity, unitOfQuantity, partName, longPartNumber, externalPartNumber, location);
 		}
 		catch (IOException e) {
 			fail("Exception thrown during unexceptional part creation: partName length is: " + 
@@ -201,11 +169,7 @@ public class Test_Part {
 			longPartNumber = longPartNumber + "A"; // add one letter to the string
 		}
 		try {
-<<<<<<< HEAD
-			p = new Part(id, quantity, unitOfQuantity, partName, longPartNumber, location);
-=======
-			p = new Part(id, quantity, unitOfQuantity, partName, longPartNumber, externalPartNumber);
->>>>>>> Change request 3 complete
+			p = new Part(id, quantity, unitOfQuantity, partName, longPartNumber, externalPartNumber, location);
 			fail("Should have thrown an exception: partName length is: " + 
 					p.getPartName().length() + " and limit is: " + Part.getMaxPartNumberLength());
 		}
@@ -249,7 +213,7 @@ public class Test_Part {
 	public void testPartCreation_LocationError_Unrecognized() throws IOException {
 		String badLocation = "Route 66";
 		try {
-			p = new Part(id, quantity, unitOfQuantity, partName, partNumber, badLocation);
+			p = new Part(id, quantity, unitOfQuantity, partName, partNumber, externalPartNumber, badLocation);
 			fail("Should have thrown an exception: location is unrecognized: " + 
 					badLocation + "and was set as " + p.getLocation());
 		}
@@ -262,7 +226,7 @@ public class Test_Part {
 	public void testPartCreation_LocationError_Unknown() throws IOException {
 		String badLocation = "Unknown";
 		try {
-			p = new Part(id, quantity, unitOfQuantity, partName, partNumber, badLocation);
+			p = new Part(id, quantity, unitOfQuantity, partName, partNumber, externalPartNumber, badLocation);
 			fail("Should have thrown an exception: location is unknown: " + 
 					badLocation + "and was set as " + p.getLocation());
 		}
@@ -275,7 +239,7 @@ public class Test_Part {
 	public void testPartCreation_LocationError_Empty() throws IOException {
 		String badLocation = "";
 		try {
-			p = new Part(id, quantity, unitOfQuantity, partName, partNumber, badLocation);
+			p = new Part(id, quantity, unitOfQuantity, partName, partNumber, externalPartNumber, badLocation);
 			fail("Should have thrown an exception: location is required: " + 
 					badLocation + "and was set as " + p.getLocation());
 		}

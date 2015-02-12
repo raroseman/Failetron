@@ -15,31 +15,18 @@ import javax.swing.border.EmptyBorder;
 public class PartView extends JFrame {
 	private JPanel partFrame;
 	private JButton cancel, ok, edit, save;
-<<<<<<< HEAD
-<<<<<<< HEAD
-	private JLabel partName, partNumber, partVendor, partQuantity, partID, partQuantityUnitType, errorMessage;
-	private JTextField nameField, numberField, vendorField, quantityField, idField;
-=======
 
-	private JLabel partName, partNumber, partVendor, partQuantity, partQuantityUnitType, partID, externalPartNumber, errorMessage;
-	private JTextField nameField, numberField, vendorField, quantityField, idField,externalField;
->>>>>>> Change request 3 complete
-	private JComboBox<String> quantityUnitTypeField;
-=======
 
-	private JLabel partName, partNumber, partVendor, partQuantity, partQuantityUnitType, partID, partLocation, errorMessage;
-	private JTextField nameField, numberField, vendorField, quantityField, idField;
-	private JComboBox<String> quantityUnitTypeField, locationField;
-	
->>>>>>> Updated PartsInventoryView, PartView, PartController, and the JUnit test for the PartsInventoryView. Specifically, added MVC functionality for the part location data, including column header sorting, editability in the PartView, modifying the PartView to show location, and including the location information in the controller.
+	private JLabel partName, partNumber, partVendor, partQuantity, partQuantityUnitType, partID, partLocation, externalPartNumber, errorMessage;
+	private JTextField nameField, numberField, vendorField, quantityField, idField, externalField;
+	private JComboBox<String> quantityUnitTypeField, locationField;	
 	private int viewWidth, viewHeight;
 	
 	public PartView(PartsInventoryModel model, String title) {
 		super(title);
 		
-		viewWidth = 400;
-		viewHeight = 340;
-
+		viewWidth = 370;
+		viewHeight = 370;
 
 			this.setSize(viewWidth, viewHeight);
 			this.setVisible(true);
@@ -77,77 +64,32 @@ public class PartView extends JFrame {
 			partFrame.add(partQuantity);
 			
 			partQuantityUnitType = new JLabel("Unit Type");
-<<<<<<< HEAD
-			partQuantityUnitType.setBounds(15, 135, 90, 30);
-=======
 			partQuantityUnitType.setBounds(15, 195, 90, 30);
->>>>>>> Change request 3 complete
 			partFrame.add(partQuantityUnitType);
 			
 			partLocation = new JLabel("Location");
-			partLocation.setBounds(15, 195, 90, 30);
+			partLocation.setBounds(15, 225, 90, 30);
 			partFrame.add(partLocation);
 			
 			errorMessage = new JLabel("");
 			errorMessage.setForeground(Color.red);
-<<<<<<< HEAD
-<<<<<<< HEAD
-			errorMessage.setBounds(15, 200, 360, 30);
+			errorMessage.setBounds(15, 295, 360, 30);
 			partFrame.add(errorMessage);
 			
 			cancel = new JButton("Cancel");
-			cancel.setBounds(225, 180, 75, 25);
+			cancel.setBounds(245, 270, 75, 25);
 			partFrame.add(cancel);
 			
 			ok = new JButton("OK");
-			ok.setBounds(155, 180, 70, 25);
+			ok.setBounds(175, 270, 70, 25);
 			partFrame.add(ok);
 			
 			edit = new JButton("Edit");
-			edit.setBounds(155, 180, 70, 25);
+			edit.setBounds(175, 270, 70, 25);
 			partFrame.add(edit);
 			
 			save = new JButton("Save");
-			save.setBounds(155, 180, 70, 25);
-=======
-			errorMessage.setBounds(15, 235, 360, 30);
-			partFrame.add(errorMessage);
-			
-			cancel = new JButton("Cancel");
-			cancel.setBounds(225, 270, 75, 25);
-			partFrame.add(cancel);
-			
-			ok = new JButton("OK");
-			ok.setBounds(155, 270, 70, 25);
-			partFrame.add(ok);
-			
-			edit = new JButton("Edit");
-			edit.setBounds(155, 270, 70, 25);
-			partFrame.add(edit);
-			
-			save = new JButton("Save");
-			save.setBounds(155, 270, 70, 25);
-=======
-			errorMessage.setBounds(15, 265, 360, 30);
-			partFrame.add(errorMessage);
-			
-			cancel = new JButton("Cancel");
-			cancel.setBounds(245, 240, 75, 25);
-			partFrame.add(cancel);
-			
-			ok = new JButton("OK");
-			ok.setBounds(175, 240, 70, 25);
-			partFrame.add(ok);
-			
-			edit = new JButton("Edit");
-			edit.setBounds(175, 240, 70, 25);
-			partFrame.add(edit);
-			
-			save = new JButton("Save");
-			save.setBounds(175, 240, 70, 25);
->>>>>>> Change request 3 complete
-
->>>>>>> Updated PartsInventoryView, PartView, PartController, and the JUnit test for the PartsInventoryView. Specifically, added MVC functionality for the part location data, including column header sorting, editability in the PartView, modifying the PartView to show location, and including the location information in the controller.
+			save.setBounds(175, 270, 70, 25);
 			partFrame.add(save);
 			
 			nameField = new JTextField();
@@ -178,18 +120,14 @@ public class PartView extends JFrame {
 			for (String unitType : model.getValidQuantityUnitTypes()) {
 				quantityUnitTypeField.addItem(unitType);
 			}
-<<<<<<< HEAD
-			quantityUnitTypeField.setBounds(120, 140, 200, 20);
-=======
 			quantityUnitTypeField.setBounds(120, 200, 200, 20);
->>>>>>> Change request 3 complete
 			partFrame.add(quantityUnitTypeField);
 			
 			locationField = new JComboBox<String>();
 			for (String location : model.getValidLocationTypes()) {
 				locationField.addItem(location);
 			}
-			locationField.setBounds(120, 200, 200, 20);
+			locationField.setBounds(120, 230, 200, 20);
 			partFrame.add(locationField);
 	}
 	

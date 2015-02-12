@@ -91,11 +91,7 @@ public class PartsInventoryController implements ActionListener, ListSelectionLi
 			case "Save":
 				if (selectedPart != null) {
 					try {
-<<<<<<< HEAD
-						Part newPart = new Part(partView.getID(), partView.getQuantity(), partView.getQuantityUnitType(), partView.getName(), partView.getNumber(), partView.getVendor(), partView.getPartLocation());
-=======
-						Part newPart = new Part(partView.getID(), partView.getQuantity(), partView.getQuantityUnitType(), partView.getName(), partView.getNumber(), partView.getExternalNumber(), partView.getVendor());
->>>>>>> Change request 3 complete
+						Part newPart = new Part(partView.getID(), partView.getQuantity(), partView.getQuantityUnitType(), partView.getName(), partView.getNumber(), partView.getExternalNumber(), partView.getPartLocation(), partView.getVendor());
 						partsInventoryModel.editPart(selectedPart, newPart);
 						partView.dispose();
 						inventoryView.updatePanel();
@@ -111,11 +107,7 @@ public class PartsInventoryController implements ActionListener, ListSelectionLi
 				break;
 			case "OK":
 				try {
-<<<<<<< HEAD
-					Part part = new Part(++id, partView.getQuantity(), partView.getQuantityUnitType(), partView.getName(), partView.getNumber(), partView.getVendor(), partView.getPartLocation());		
-=======
-					Part part = new Part(++id, partView.getQuantity(), partView.getQuantityUnitType(), partView.getName(), partView.getNumber(), partView.getExternalNumber(), partView.getVendor());		
->>>>>>> Change request 3 complete
+					Part part = new Part(++id, partView.getQuantity(), partView.getQuantityUnitType(), partView.getName(), partView.getNumber(), partView.getExternalNumber(), partView.getPartLocation(), partView.getVendor());			
 					partsInventoryModel.addPart(part);
 					partsInventoryModel.printInventory();
 					partView.dispose();
